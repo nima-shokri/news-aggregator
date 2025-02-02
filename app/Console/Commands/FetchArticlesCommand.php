@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use App\Services\ArticleService;
 
 
-class FetchArticles extends Command
+class FetchArticlesCommand extends Command
 {
 
     /**
@@ -24,17 +24,15 @@ class FetchArticles extends Command
     protected $description = 'Fetch articles from news sources';
 
 
-    protected ArticleService $articleService;
     
     /**
      * Create a new command instance.
      *
      * @param ArticleService $articleService
      */
-    public function __construct(ArticleService $articleService)
+    public function __construct(protected readonly ArticleService $articleService)
     {
         parent::__construct();
-        $this->articleService = $articleService;
     }
 
     /**

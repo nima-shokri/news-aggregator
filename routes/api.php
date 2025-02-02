@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+
+Route::prefix('v1')->name('V1.')->group(function () {
+    Route::get('/articles', [\App\Http\Controllers\Api\V1\ArticleController::class, 'index'])->name('articles.index');
 });

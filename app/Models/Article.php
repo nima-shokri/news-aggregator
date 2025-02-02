@@ -12,8 +12,12 @@ class Article extends Model
         'source_id','category_id','title', 'author', 'description', 'url', 'image_url', 'published_at', 'source'
     ];
 
-    public function categories()
+    public function newsSource()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Source::class);
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
